@@ -23,7 +23,7 @@ export const ExperienceSection = () => {
                         className="gradient-border lg:max-w-3xl p-0 rounded-xl overflow-hidden card-hover gap-6">
                             <div className="flex flex-col items-center sm:flex-row">
                                     <img 
-                                        src="src/images/CDSI.png" alt="" 
+                                        src="/images/CDSI.png" alt="" 
                                         className="object-cover w-full h-54 sm:w-full sm:max-h-auto"
                                     />
                                 <div className="text-left text-primary-foreground p-4">

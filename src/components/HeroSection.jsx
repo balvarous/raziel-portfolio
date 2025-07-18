@@ -14,7 +14,7 @@ export const HeroSection = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{once: false, amount: 0}}>
-                        <img src="src/images/TitleCard.png" alt="Title" className="w-full h-auto rounded-4xl"/>
+                        <img src="/images/TitleCard.png" alt="Title" className="w-full h-auto rounded-4xl"/>
                 </motion.div>
                 <motion.div
                     variants={fadeIn('up', 0.2)}
