@@ -1,4 +1,4 @@
-
+import { ThemeToggle } from "../components/ThemeToggle"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -28,8 +28,8 @@ export const Navbar = () => {
     return (
         <nav 
             className={cn(
-                "fixed w-full z-40 transition-all duration-300", 
-                isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+                "fixed w-full z-40 transition-all duration-300 bg-background", 
+                isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-3"
             )}
         >
             <div className="container flex items-center justify-between">
@@ -43,7 +43,7 @@ export const Navbar = () => {
                 </a>
 
                 {/* desktop nav */}
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex justify-end space-x-8">
                     {navItems.map((item, key) => (
                         <a 
                             key={key} 
@@ -53,6 +53,11 @@ export const Navbar = () => {
                             {item.name}
                         </a>
                     ))}
+                </div>
+
+                <div className="hidden md:flex items-center">
+                    {/* Theme Toggle */}
+                    <ThemeToggle />
                 </div>
 
                 {/* mobile nav */}
@@ -66,7 +71,7 @@ export const Navbar = () => {
 
                 <div 
                     className={cn(
-                        "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+                        "fixed inset-0 bg-background/70 backdrop-blur-xs z-40 flex flex-col items-center justify-center",
                         "transition-all duration-300 md:hidden",
                         isMenuOpen 
                             ? "opacity-100 pointer-events-auto" 
@@ -84,6 +89,10 @@ export const Navbar = () => {
                                 {item.name}
                             </a>
                         ))}
+                    </div>
+                    <div className="flex justify-center pb-5 pt-8">
+                        {/* Theme Toggle */}
+                        <ThemeToggle />
                     </div>
                 </div>
             </div>

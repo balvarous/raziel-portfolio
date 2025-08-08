@@ -1,15 +1,28 @@
 import { Facebook, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react"
 import {cn} from "@/lib/utils"
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser'
 
 export const ContactSection = () => {
 
-    /* const handleSubmit = (e) => {
-        e.preventDefault()
+    const form = useRef()
 
-        setTimeout(() => {
+    const sendEmail = (e) => {
+        e.preventDefault();
 
-        }, 1500)
-    } */
+        emailjs
+            .sendForm('service_42dmt4i', 'template_dzf46sf', form.current, {
+                publicKey: 'Id_1Lp6n7pfhyAMqA',
+            })
+            .then(
+                () => {
+                console.log('SUCCESS!')
+                },
+                (error) => {
+                console.log('FAILED...', error.text)
+                },
+            )
+    }
 
     return (
         <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -22,7 +35,7 @@ export const ContactSection = () => {
                     together or simply say hello, feel free to reach out via email or 
                     the form below.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-12"> {/* make column 2 for md */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> {/* make column 2 for md */}
                     <div className="space-y-8">
                         <h3 className="text-2xl font-semibold mb-6"> 
                             {" "}
@@ -30,12 +43,12 @@ export const ContactSection = () => {
                         </h3>
                         
                         <div className="space-y-6 justify-center">
-                            <div className="flex items-start space-x-4">
+                            <div className="flex items-center space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Mail className="h-6 w-6 text-primary"/>{" "}
                                 </div>
                                 <div>
-                                    <h4 className="font-medium">Email</h4>
+                                    {/* <h4 className="font-medium">Email</h4> */}
                                     <a 
                                         href="mailto:raziel23jamito@gmail.com" 
                                         className="text-muted-foreground hover:text-primary transition-colors"
@@ -45,14 +58,14 @@ export const ContactSection = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
+                            <div className="flex items-center space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Phone className="h-6 w-6 text-primary"/>{" "}
                                 </div>
                                 <div>
-                                    <h4 className="font-medium">Phone</h4>
+                                    {/* <h4 className="font-medium">Phone</h4> */}
                                     <a 
-                                        href="tel:+9164102306" 
+                                        href="tel:+639164102306" 
                                         className="text-muted-foreground hover:text-primary transition-colors"
                                     >
                                         +63 916 410 2306
@@ -60,12 +73,12 @@ export const ContactSection = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
+                            <div className="flex items-center space-x-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <MapPin className="h-6 w-6 text-primary"/>{" "}
                                 </div>
                                 <div>
-                                    <h4 className="font-medium">Address</h4>
+                                    {/* <h4 className="font-medium">Address</h4> */}
                                     <a  
                                         className="text-muted-foreground hover:text-primary transition-colors"
                                     >
@@ -89,15 +102,15 @@ export const ContactSection = () => {
 
                     </div>
 
-                    {/* <div className="bg-primary p-8 rounded-lg shadow-xs text-primary-foreground">
+                    <div className="bg-primary p-8 rounded-lg shadow-xs text-primary-foreground">
                         <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-                        <form className="space-y-6">
+                        <form className="space-y-6" ref={form} onSubmit={sendEmail}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
                                 <input 
                                     type="text" 
                                     id="name" 
-                                    name="name"
+                                    name="from_name"
                                     required 
                                     className="text-white w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" 
                                     placeholder="Juan Dela Cruz"
@@ -108,7 +121,7 @@ export const ContactSection = () => {
                                 <input 
                                     type="email" 
                                     id="email" 
-                                    name="email"
+                                    name="from_email"
                                     required 
                                     className="text-white w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" 
                                     placeholder="juan@gmail.com"
@@ -121,7 +134,7 @@ export const ContactSection = () => {
                                     name="message"
                                     required 
                                     className="text-white w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none" 
-                                    placeholder="Hello, I would like to..."
+                                    placeholder="Hi Raziel, I would like to..."
                                 />
                             </div>
 
@@ -135,7 +148,7 @@ export const ContactSection = () => {
                                 <Send size={16}/>
                             </button>
                         </form>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </section>

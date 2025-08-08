@@ -21,7 +21,7 @@ export const HeroSection = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{once: false, amount: 0}}>
-                        <a href="projects" className="cosmic-button">
+                        <a href="#projects" className="cosmic-button">
                             View My Work
                         </a>
                 </motion.div>
