@@ -19,7 +19,7 @@ export const Footer = () => {
                         return (
                             <li key={index}>
                                 <a 
-                                    href="#" 
+                                    href={item.href} 
                                     className="hover:text-glow transition-all duration-500 cursor-pointer"
                                 >{item.name}</a>
                             </li>
