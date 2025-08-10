@@ -45,12 +45,13 @@ export const Navbar = () => {
                 {/* desktop nav */}
                 <div className="hidden md:flex justify-end space-x-8">
                     {navItems.map((item, key) => (
-                        <a 
+                        <a
                             key={key} 
                             href={item.href} 
-                            className="text-foreground/80 hover:text-glow transition-colors duration-300"
+                            className="text-foreground/80 hover:text-glow transition-colors duration-300 group"
                         >
                             {item.name}
+                            <div className="mx-auto text-foreground/80 w-0 group-hover:w-full"></div>
                         </a>
                     ))}
                 </div>

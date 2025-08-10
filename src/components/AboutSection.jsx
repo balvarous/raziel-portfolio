@@ -3,6 +3,13 @@ import { motion } from "framer-motion"
 import { fadeIn } from "../framerMotion/variants"
 
 export const AboutSection = () => {
+
+    /* const saveFile = () => {
+        FileSaver.saveAs(
+            process.env.REACT_APP
+        )
+    } */
+
     return (
         <section id="about" className="py-24 px-4 relative bg-primary">
             <div className="container mx-auto max-w-5xl">
@@ -47,7 +54,7 @@ export const AboutSection = () => {
                                     {" "}
                                     Get In Touch
                                 </a>
-                                <a href=" " 
+                                <a href="/CV/Angelo_Raziel_Jamito_Resume.pdf" download 
                                 className="px-6 py-2 rounded-full border border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 transition-colors duration-300">
                                     Download CV
                                 </a>
